@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: ping-topic
+          contentType: application/json
+      kafka:
+        binder:
+          zkNodes: localhost:2181
+          brokers: localhost:9094
+        bindings:
+          input:
+            configuration:
+              maxPollRecords: 1
+              max.poll.records: 1
+              dummy: my-dummy
+              metadata.max.age.ms: 300001
+              auto.commit.interval.ms: 101
